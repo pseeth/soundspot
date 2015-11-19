@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create a project</title>
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Soundspot</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li class="active"><a href="/create">Create project</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container"><!-- .container -->
+	
+	<div class="row col-12">
+		<p class="instr">1. What's the project name?</p>
+		<input type="text" name="title" class="form-control"></input>
+	</div>
+	
+	<div class="row col-lg-12 col-sm-12 col-12">
+		<p class="instr">2. Upload a pdf score (.pdf only).</p>
+		<div class="input-group">
+			<span class="input-group-btn">
+				<span class="btn btn-primary btn-file">
+					Browse  <input name="score" type="file">
+				</span>
+			</span>
+			<input type="text" class="form-control" readonly>
+		</div>
+	</div>
+	
+	<div class="row col-lg-12 col-sm-12 col-12">
+		<p class="instr">3. Upload an audio file (.mp3, .wav, .aac, .ogg, etc).</p>
+		<div class="input-group">
+			<span class="input-group-btn">
+				<span class="btn btn-primary btn-file">
+					Browse  <input name="audio" type="file">
+				</span>
+			</span>
+			<input type="text" class="form-control" readonly>
+		</div>
+	</div>
+
+	<div class="row col-lg-12 col-sm-12 col-12">
+		<p class="instr">4. Submit the project to get some feedback!.</p>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<button type="button"
+				class="btn btn-primary btn-block"
+				id="submit"
+				onclick="submit();">
+					<span class="glyphicon glyphicon-ok"></span> Submit
+			</button>
+		</div>
+    </div>
+
+	</div><!-- /.container -->
+  
+    
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/js.cookie.min.js"></script>
+    <script src="/static/js/create.js"></script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review project</title>
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="/static/css/review.css" rel="stylesheet">
+    <link href="/static/css/annotorious.css" rel="stylesheet">
+  </head>
+  <body>
+  
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Soundspot</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li class="active"><a href="/create">Create project</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container main">
+	
+	<div class="row col-12">
+		<p class="instr">Analyze and give feedback on <b>{{ project_name }}</b> by annotating the score with text and audio.</p>
+	</div>
+	
+	
+	<div class="row col-12">
+		<p class="instr">1. Identify structural elements that create the tension driving the piece</p>
+	</div>
+	
+	<div class="row col-12">
+		<p class="instr">2. Identify parts of the piece where you would have done something differently, and briefly state how.</p>
+	</div>
+	
+	<div class="row col-12">
+		<p class="instr">3. Identify moments of the piece and tag them with single-word descriptions (e.g. dense, sad, bright, sparse, etc.) If you have a multi-word description please use a dash to connect them (e.g. call-and-response).</p>
+	</div>
+
+	<div class="row col-12">
+		<p class="instr">4. Tag moments of the piece with an audio comment of some sort (shout, hum, sing, ta the rhythm etc.)</p>
+	</div>
+	
+	<div class="row col-12">
+		<p class="instr">5. Annotate the score by clicking and dragging on the score, keeping questions 1-4 in mind.</p>
+	</div>
+	
+
+	{% for s in score %}
+	<div class="row col-12">
+	<div class="image-display">
+	<img id='page-{{ loop.index0 }}' class="score-image annotatable" src={{ s }}>
+	</div>
+	</div>
+	{% endfor %}
+
+
+	<div class="row submit">
+		<div class="col-12">
+			<button type="button"
+				class="btn btn-primary btn-block btn-lg"
+				id="submit"
+				onclick="submit();">
+					<span class="glyphicon glyphicon-ok"></span> Submit analysis
+			</button>
+		</div>
+    </div>
+
+    </div><!-- /.container -->
+	
+	{% if audio_exists %}
+	<footer class="footer navbar-fixed-bottom">
+	<div class="row col-12" id="audio-controls">
+	<div id="controls">
+		<button type="button" class="btn btn-default btn-circle btn-lg" id="playstop" onclick="music.toggle();">
+			<span class="glyphicon glyphicon-play"></span>
+		</button>
+	</div>
+	<div id="audio-waveform">
+	</div>
+	</div>
+	</footer>
+	{% endif %}
+  
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/js.cookie.min.js"></script>
+	<script src="/static/js/recorder.js"></script>
+	<script src="/static/js/recorderWorker.js"></script>
+    <script src="/static/js/annotorious.min.js"></script>
+    <script src="/static/js/wavesurfer.min.js"></script>
+    <script src="/static/js/wavesurfer.regions.js"></script>
+    <script src="/static/js/soundspot-annotator.js"></script>
+    <script src="/static/js/bootstrap-tagsinput.min.js"></script>
+    <script>var project_id = "{{ project_id }}"; var audio_location = "{{ audio }}"; var audio_exists = ("{{ audio_exists }}" == "True");</script>
+	<script src="/static/js/review.js"></script>
+  </body>
+</html>

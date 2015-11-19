@@ -1,0 +1,85 @@
+body {
+	margin:auto;
+	padding-top:55px;
+}
+
+.container {
+	max-width: 840px;
+	width: 90%;
+}
+
+.instr {
+	margin-top: 5px;
+	font-size: 1.5em;
+}
+
+.row {
+	padding: 10px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.score-image {
+	overflow: auto;
+	text-align: center;
+	display: block;
+}
+
+.left {
+	float: left;
+	width: 70%;
+	overflow: auto;
+}
+
+.right {
+	float: left;
+	width: 30%;
+	overflow: hidden;
+	height: 140px;
+}
+
+.score-title {
+	width: 100%;
+	float: left;
+}
+
+.info {
+	width: 70%;
+	overflow: auto;
+	display: block;
+}
+
+.score {
+	border: 1px dashed lightgray;
+	overflow: auto;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+.score ul {
+	float: left;
+	display: block;
+}
+
+.jumbotron {
+	text-align: center;
+}
